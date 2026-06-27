@@ -1,38 +1,38 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { certifications } from "@/lib/data";
+import { fadeUp as makeFadeUp } from "@/lib/motion";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 32 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.55, ease: "easeOut", delay: i * 0.1 },
-  }),
+const fadeUp = makeFadeUp(0.06);
+
+const categoryOrder = ["Award", "AI", "Data", "Healthcare", "Development"];
+
+const categoryLabels: Record<string, string> = {
+  Award: "🏆 Awards",
+  AI: "Artificial Intelligence",
+  Data: "Data & Analytics",
+  Healthcare: "Healthcare",
+  Development: "Development",
 };
 
-// Drive folder: https://drive.google.com/drive/folders/1isse8r3at14oIzJp5PthxZ9luhLsppKV
-// Badge IDs to be filled in once the user confirms the file IDs from their Drive folder
-const certifications = [
-  {
-    name: "Google Solution Challenge",
-    issuer: "Google",
-    year: "2023",
-    detail: "Top 10 Finalist",
-    color: "#4285F4",
-    icon: "G",
-  },
-  {
-    name: "Coming soon",
-    issuer: "Add your badge IDs from Drive",
-    year: "",
-    detail: "Update lib/data.ts",
-    color: "var(--accent)",
-    icon: "?",
-  },
-];
+function getInitials(issuer: string) {
+  return issuer
+    .split(/[\s/]+/)[0]
+    .slice(0, 2)
+    .toUpperCase();
+}
 
 export default function Certifications() {
+  const grouped = categoryOrder.reduce<Record<string, typeof certifications>>(
+    (acc, cat) => {
+      const items = certifications.filter((c) => c.category === cat);
+      if (items.length) acc[cat] = items;
+      return acc;
+    },
+    {}
+  );
+
   return (
     <section id="certifications" className="relative py-32 px-6">
       <div
@@ -44,6 +44,7 @@ export default function Certifications() {
       />
 
       <div className="max-w-6xl mx-auto">
+        {/* Header */}
         <motion.div
           className="mb-16"
           initial="hidden"
@@ -58,79 +59,115 @@ export default function Certifications() {
           >
             04 — Certifications
           </p>
-          <h2
-            className="text-4xl md:text-5xl font-bold"
-            style={{ color: "var(--text-primary)" }}
-          >
-            Credentials
-          </h2>
+          <div className="flex items-end justify-between gap-4 flex-wrap">
+            <h2
+              className="text-4xl md:text-5xl font-bold"
+              style={{ color: "var(--text-primary)" }}
+            >
+              Credentials
+            </h2>
+            <a
+              href="https://drive.google.com/drive/folders/1isse8r3at14oIzJp5PthxZ9luhLsppKV"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-mono tracking-wide transition-colors duration-200 pb-1"
+              style={{
+                color: "var(--text-muted)",
+                borderBottom: "1px solid var(--border)",
+              }}
+              onMouseEnter={(e) =>
+                ((e.currentTarget as HTMLElement).style.color =
+                  "var(--accent-light)")
+              }
+              onMouseLeave={(e) =>
+                ((e.currentTarget as HTMLElement).style.color =
+                  "var(--text-muted)")
+              }
+            >
+              View all certificates →
+            </a>
+          </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {certifications.map((cert, i) => (
+        {/* Grouped categories */}
+        <div className="space-y-10">
+          {Object.entries(grouped).map(([category, certs], groupIdx) => (
             <motion.div
-              key={cert.name}
-              className="rounded-2xl p-6 flex items-start gap-4"
-              style={{
-                background: "var(--bg-card)",
-                border: "1px solid var(--border)",
-              }}
+              key={category}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-60px" }}
-              custom={i + 1}
+              custom={groupIdx + 1}
               variants={fadeUp}
-              whileHover={{
-                borderColor: "rgba(37,87,54,0.5)",
-                boxShadow: "0 0 24px rgba(37,87,54,0.1)",
-              }}
-              transition={{ duration: 0.2 }}
             >
-              {/* Icon badge */}
-              <div
-                className="w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold shrink-0"
-                style={{
-                  background: `${cert.color}22`,
-                  border: `1px solid ${cert.color}44`,
-                  color: cert.color,
-                }}
+              <p
+                className="text-xs font-mono tracking-widest uppercase mb-4"
+                style={{ color: "var(--accent-light)" }}
               >
-                {cert.icon}
-              </div>
+                {categoryLabels[category]}
+              </p>
 
-              <div>
-                <p
-                  className="font-semibold text-sm leading-snug mb-0.5"
-                  style={{ color: "var(--text-primary)" }}
-                >
-                  {cert.name}
-                </p>
-                <p
-                  className="text-xs mb-1"
-                  style={{ color: "var(--accent-light)" }}
-                >
-                  {cert.issuer} {cert.year && `· ${cert.year}`}
-                </p>
-                <p
-                  className="text-xs"
-                  style={{ color: "var(--text-muted)" }}
-                >
-                  {cert.detail}
-                </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                {certs.map((cert, i) => (
+                  <motion.div
+                    key={cert.name}
+                    className="flex items-center gap-4 rounded-xl px-4 py-3.5"
+                    style={{
+                      background: "var(--bg-card)",
+                      border: "1px solid var(--border)",
+                    }}
+                    whileHover={{
+                      borderColor: "rgba(37,87,54,0.45)",
+                      boxShadow: "0 0 20px rgba(37,87,54,0.08)",
+                      x: 2,
+                    }}
+                    transition={{ duration: 0.18 }}
+                    custom={groupIdx * 10 + i}
+                  >
+                    {/* Issuer badge */}
+                    <div
+                      className="w-9 h-9 rounded-lg flex items-center justify-center text-xs font-bold shrink-0 font-mono"
+                      style={{
+                        background: `${cert.color}18`,
+                        border: `1px solid ${cert.color}35`,
+                        color: cert.color,
+                      }}
+                    >
+                      {getInitials(cert.issuer)}
+                    </div>
+
+                    <div className="min-w-0">
+                      <p
+                        className="text-sm font-medium leading-snug truncate"
+                        style={{ color: "var(--text-primary)" }}
+                        title={cert.name}
+                      >
+                        {cert.name}
+                      </p>
+                      <p
+                        className="text-xs mt-0.5 truncate"
+                        style={{ color: "var(--text-muted)" }}
+                      >
+                        {cert.note ?? cert.issuer}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
             </motion.div>
           ))}
         </div>
 
+        {/* Total count */}
         <motion.p
-          className="mt-8 text-xs font-mono text-center"
+          className="mt-10 text-xs font-mono text-center"
           style={{ color: "var(--text-muted)" }}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
+          transition={{ delay: 0.4 }}
         >
-          More certifications will be added once badge IDs from Drive are confirmed.
+          {certifications.length} credentials · verified via Google Drive
         </motion.p>
       </div>
     </section>
