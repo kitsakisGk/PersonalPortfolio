@@ -2,15 +2,9 @@
 
 import { motion } from "framer-motion";
 import { personal } from "@/lib/data";
+import { fadeUp as makeFadeUp } from "@/lib/motion";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 32 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.55, ease: "easeOut", delay: i * 0.1 },
-  }),
-};
+const fadeUp = makeFadeUp(0.1);
 
 function LinkedInIcon() {
   return (
