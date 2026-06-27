@@ -141,21 +141,86 @@ export const projects = [
   },
 ];
 
+// Drive folder (public): https://drive.google.com/drive/folders/1isse8r3at14oIzJp5PthxZ9luhLsppKV
 export const certifications = [
   {
-    name: "Google Data Analytics",
+    name: "IBM Data Analyst Professional Certificate",
+    issuer: "IBM / Coursera",
+    category: "Data",
+    color: "#054ADA",
+  },
+  {
+    name: "Data Analysis with Python",
+    issuer: "IBM / Coursera",
+    category: "Data",
+    color: "#054ADA",
+  },
+  {
+    name: "Python for Data Science and AI",
+    issuer: "IBM / Coursera",
+    category: "Data",
+    color: "#054ADA",
+  },
+  {
+    name: "Python Project for Data Science",
+    issuer: "IBM / Coursera",
+    category: "Data",
+    color: "#054ADA",
+  },
+  {
+    name: "Data Analyst Capstone Project",
+    issuer: "IBM / Coursera",
+    category: "Data",
+    color: "#054ADA",
+  },
+  {
+    name: "Data Visualization & Dashboard Essentials",
+    issuer: "IBM / Coursera",
+    category: "Data",
+    color: "#054ADA",
+  },
+  {
+    name: "Data Analyst Career Guide & Interview Prep",
+    issuer: "IBM / Coursera",
+    category: "Data",
+    color: "#054ADA",
+  },
+  {
+    name: "Statistics with Python",
+    issuer: "University of Michigan / Coursera",
+    category: "Data",
+    color: "#00274C",
+  },
+  {
+    name: "Healthcare Data Analyst",
+    issuer: "Coursera",
+    category: "Healthcare",
+    color: "#0056D2",
+  },
+  {
+    name: "Generative AI Essentials for Data Analytics",
+    issuer: "IBM / Coursera",
+    category: "AI",
+    color: "#054ADA",
+  },
+  {
+    name: "Generative AI",
+    issuer: "Coursera",
+    category: "AI",
+    color: "#0056D2",
+  },
+  {
+    name: "Full Stack Development",
+    issuer: "Udemy",
+    category: "Development",
+    color: "#A435F0",
+  },
+  {
+    name: "Google Solution Challenge",
     issuer: "Google",
-    badgeDriveId: "",
-  },
-  {
-    name: "Microsoft Azure Data Fundamentals (DP-900)",
-    issuer: "Microsoft",
-    badgeDriveId: "",
-  },
-  {
-    name: "Databricks Fundamentals",
-    issuer: "Databricks",
-    badgeDriveId: "",
+    category: "Award",
+    color: "#4285F4",
+    note: "Top 10 Finalist · 2023",
   },
 ];
 
