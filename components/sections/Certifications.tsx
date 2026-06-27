@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { certifications } from "@/lib/data";
 import { fadeUp as makeFadeUp } from "@/lib/motion";
+import SectionWrapper from "@/components/SectionWrapper";
 
 const fadeUp = makeFadeUp(0.06);
 
@@ -34,38 +35,28 @@ export default function Certifications() {
   );
 
   return (
-    <section id="certifications" className="relative py-32 px-6">
-      <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-32 pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(to bottom, transparent, var(--accent), transparent)",
-        }}
-      />
-
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <motion.div
-          className="mb-16"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          custom={0}
-          variants={fadeUp}
+    <SectionWrapper id="certifications">
+      {/* Header with Drive link */}
+      <motion.div
+        className="mb-14"
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <p
+          className="text-xs font-mono tracking-[0.3em] uppercase mb-3"
+          style={{ color: "var(--accent-light)" }}
         >
-          <p
-            className="text-xs font-mono tracking-[0.3em] uppercase mb-3"
-            style={{ color: "var(--accent-light)" }}
+          04 — Certifications
+        </p>
+        <div className="flex items-end justify-between gap-4 flex-wrap">
+          <h2
+            className="text-4xl md:text-5xl font-bold leading-tight"
+            style={{ color: "var(--text-primary)" }}
           >
-            04 — Certifications
-          </p>
-          <div className="flex items-end justify-between gap-4 flex-wrap">
-            <h2
-              className="text-4xl md:text-5xl font-bold"
-              style={{ color: "var(--text-primary)" }}
-            >
-              Credentials
-            </h2>
+            Credentials
+          </h2>
             <a
               href="https://drive.google.com/drive/folders/1isse8r3at14oIzJp5PthxZ9luhLsppKV"
               target="_blank"
@@ -89,7 +80,7 @@ export default function Certifications() {
           </div>
         </motion.div>
 
-        {/* Grouped categories */}
+      {/* Grouped categories */}
         <div className="space-y-10">
           {Object.entries(grouped).map(([category, certs], groupIdx) => (
             <motion.div
@@ -169,7 +160,6 @@ export default function Certifications() {
         >
           {certifications.length} credentials · verified via Google Drive
         </motion.p>
-      </div>
-    </section>
+    </SectionWrapper>
   );
 }

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { projects } from "@/lib/data";
 import { fadeUp as makeFadeUp } from "@/lib/motion";
+import SectionWrapper, { SectionHeader } from "@/components/SectionWrapper";
 
 const fadeUp = makeFadeUp(0.1);
 
@@ -45,37 +46,8 @@ export default function Projects() {
   const rest = projects.filter((p) => !p.featured);
 
   return (
-    <section id="projects" className="relative py-32 px-6">
-      <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-32 pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(to bottom, transparent, var(--accent), transparent)",
-        }}
-      />
-
-      <div className="max-w-6xl mx-auto">
-        <motion.div
-          className="mb-16"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          custom={0}
-          variants={fadeUp}
-        >
-          <p
-            className="text-xs font-mono tracking-[0.3em] uppercase mb-3"
-            style={{ color: "var(--accent-light)" }}
-          >
-            03 — Projects
-          </p>
-          <h2
-            className="text-4xl md:text-5xl font-bold"
-            style={{ color: "var(--text-primary)" }}
-          >
-            What I've built
-          </h2>
-        </motion.div>
+    <SectionWrapper id="projects">
+      <SectionHeader index="03" label="Projects" title="What I've built" />
 
         {/* Featured — large cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
@@ -266,7 +238,6 @@ export default function Projects() {
             View all projects on GitHub →
           </a>
         </motion.div>
-      </div>
-    </section>
+    </SectionWrapper>
   );
 }

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { personal } from "@/lib/data";
 import { fadeUp as makeFadeUp } from "@/lib/motion";
+import SectionWrapper from "@/components/SectionWrapper";
 
 const fadeUp = makeFadeUp(0.1);
 
@@ -35,16 +36,8 @@ function MailIcon() {
 
 export default function Contact() {
   return (
-    <section id="contact" className="relative py-32 px-6">
-      <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-32 pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(to bottom, transparent, var(--accent), transparent)",
-        }}
-      />
-
-      <div className="max-w-4xl mx-auto text-center">
+    <SectionWrapper id="contact">
+      <div className="max-w-2xl mx-auto text-center">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -152,7 +145,7 @@ export default function Contact() {
 
       {/* Footer */}
       <motion.div
-        className="mt-24 text-center"
+        className="mt-20 text-center"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -165,6 +158,6 @@ export default function Contact() {
           © {new Date().getFullYear()} Georgios Kitsakis · Athens, Greece
         </p>
       </motion.div>
-    </section>
+    </SectionWrapper>
   );
 }
