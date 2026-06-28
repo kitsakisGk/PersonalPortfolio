@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { projects } from "@/lib/data";
@@ -36,7 +36,7 @@ export default function Projects() {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 320px), 1fr))",
+          gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 440px), 1fr))",
           gap: "1rem",
           marginBottom: "1rem",
         }}
@@ -47,7 +47,6 @@ export default function Projects() {
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="group"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
@@ -71,6 +70,7 @@ export default function Projects() {
               textDecoration: "none",
               position: "relative",
               overflow: "hidden",
+              gridColumn: i === featured.length - 1 && featured.length % 2 !== 0 ? "1 / -1" : undefined,
             }}
           >
             <div>
@@ -159,7 +159,7 @@ export default function Projects() {
               </h3>
               {"award" in project && project.award && (
                 <p style={{ fontSize: "0.72rem", fontFamily: "var(--font-geist-mono), monospace", color: "var(--accent-light)", marginBottom: "0.4rem" }}>
-                  🏆 {project.award}
+                  π† {project.award}
                 </p>
               )}
               <p style={{ fontSize: "0.8rem", color: "var(--text-secondary)", lineHeight: 1.6 }}>
@@ -214,9 +214,12 @@ export default function Projects() {
           onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--text-secondary)")}
         >
           <GitHubIcon />
-          View all projects on GitHub →
+          View all projects on GitHub β†’
         </a>
       </motion.div>
     </SectionWrapper>
   );
 }
+
+
+
