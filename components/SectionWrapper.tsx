@@ -6,34 +6,35 @@ import { motion } from "framer-motion";
 interface SectionWrapperProps {
   id: string;
   children: ReactNode;
-  className?: string;
-  divider?: boolean;
   tinted?: boolean;
 }
 
 export default function SectionWrapper({
   id,
   children,
-  className = "",
-  divider = true,
   tinted = false,
 }: SectionWrapperProps) {
   return (
     <section
       id={id}
-      className={`relative w-full py-24 md:py-32 ${className}`}
-      style={tinted ? { background: "var(--bg-secondary)" } : undefined}
+      style={{
+        position: "relative",
+        width: "100%",
+        paddingTop: "6rem",
+        paddingBottom: "6rem",
+        background: tinted ? "var(--bg-secondary)" : "var(--bg-primary)",
+        borderTop: "1px solid var(--border)",
+      }}
     >
-      {divider && (
-        <div
-          className="absolute top-0 left-0 right-0 h-px pointer-events-none"
-          style={{
-            background:
-              "linear-gradient(to right, transparent, var(--border), transparent)",
-          }}
-        />
-      )}
-      <div className="w-full max-w-6xl mx-auto px-6 md:px-12 lg:px-16">
+      <div
+        style={{
+          width: "100%",
+          maxWidth: "1100px",
+          margin: "0 auto",
+          paddingLeft: "clamp(1.5rem, 5vw, 5rem)",
+          paddingRight: "clamp(1.5rem, 5vw, 5rem)",
+        }}
+      >
         {children}
       </div>
     </section>
@@ -51,21 +52,31 @@ export function SectionHeader({
 }) {
   return (
     <motion.div
-      className="mb-14"
+      style={{ marginBottom: "3.5rem" }}
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
     >
       <p
-        className="text-xs font-mono tracking-[0.3em] uppercase mb-3"
-        style={{ color: "var(--accent-light)" }}
+        style={{
+          fontSize: "0.7rem",
+          fontFamily: "var(--font-geist-mono), monospace",
+          letterSpacing: "0.28em",
+          textTransform: "uppercase",
+          color: "var(--accent-light)",
+          marginBottom: "0.75rem",
+        }}
       >
         {index} — {label}
       </p>
       <h2
-        className="text-4xl md:text-5xl font-bold leading-tight"
-        style={{ color: "var(--text-primary)" }}
+        style={{
+          fontSize: "clamp(2.25rem, 5vw, 3.5rem)",
+          fontWeight: 700,
+          lineHeight: 1.08,
+          color: "var(--text-primary)",
+        }}
       >
         {title}
       </h2>

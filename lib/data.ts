@@ -15,12 +15,20 @@ export const personal = {
 
 export const experience = [
   {
+    company: "Intrum",
+    role: "Data Engineer",
+    period: "Apr 2026 – Present",
+    bullets: [
+      "Update me with your actual responsibilities here",
+    ],
+  },
+  {
     company: "Accenture",
     role: "Data Engineer",
-    period: "Nov 2024 – Present",
+    period: "Nov 2024 – Mar 2026",
     bullets: [
-      "Build ETL pipelines with Informatica and SQL (Oracle, MS SQL)",
-      "Implement data quality workflows for production systems",
+      "Built ETL pipelines with Informatica and SQL (Oracle, MS SQL)",
+      "Implemented data quality workflows for production systems",
       "Exposure to cloud ETL (Azure Data Factory, IICS)",
     ],
   },
