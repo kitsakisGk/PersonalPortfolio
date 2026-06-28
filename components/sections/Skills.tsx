@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { skillGroups, languages } from "@/lib/data";
@@ -101,7 +101,7 @@ export default function Skills() {
           Human Languages
         </p>
         <div style={{ display: "flex", flexWrap: "wrap", gap: "1.5rem" }}>
-          {languages.map(({ lang, level }) => (
+          {languages.map(({ lang, level, detail }) => (
             <div key={lang} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
               <span style={{ fontSize: "0.9rem", fontWeight: 600, color: "var(--text-primary)" }}>
                 {lang}
@@ -118,6 +118,21 @@ export default function Skills() {
               >
                 {level}
               </span>
+              {detail && (
+                <span
+                  style={{
+                    fontSize: "0.65rem",
+                    fontFamily: "var(--font-geist-mono), monospace",
+                    padding: "0.15rem 0.5rem",
+                    borderRadius: "999px",
+                    background: "rgba(37,87,54,0.08)",
+                    color: "var(--accent-light)",
+                    border: "1px solid rgba(37,87,54,0.18)",
+                  }}
+                >
+                  {detail}
+                </span>
+              )}
             </div>
           ))}
         </div>
@@ -125,3 +140,4 @@ export default function Skills() {
     </SectionWrapper>
   );
 }
+
