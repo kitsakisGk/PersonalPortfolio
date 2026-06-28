@@ -1,8 +1,8 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 
-const roles = ["ML Engineer", "Data Engineer", "Software Developer"];
+const roles = ["ML Engineer", "Data Engineer", "Web Developer"];
 
 const stats = [
   { value: "2+", label: "Years experience" },
@@ -15,12 +15,23 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-6 md:px-12"
+      style={{
+        position: "relative",
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        overflow: "hidden",
+        padding: "0 clamp(1.5rem, 5vw, 5rem)",
+      }}
     >
       {/* Background radial glow */}
       <div
-        className="absolute inset-0 pointer-events-none"
         style={{
+          position: "absolute",
+          inset: 0,
+          pointerEvents: "none",
           background:
             "radial-gradient(ellipse 80% 55% at 50% -10%, rgba(37,87,54,0.22) 0%, transparent 70%)",
         }}
@@ -28,8 +39,11 @@ export default function Hero() {
 
       {/* Grid lines */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.035]"
         style={{
+          position: "absolute",
+          inset: 0,
+          pointerEvents: "none",
+          opacity: 0.035,
           backgroundImage:
             "linear-gradient(var(--accent-light) 1px, transparent 1px), linear-gradient(90deg, var(--accent-light) 1px, transparent 1px)",
           backgroundSize: "80px 80px",
@@ -37,31 +51,61 @@ export default function Hero() {
       />
 
       {/* Content */}
-      <div className="relative z-10 max-w-5xl w-full text-center">
+      <div
+        style={{
+          position: "relative",
+          zIndex: 10,
+          maxWidth: "900px",
+          width: "100%",
+          textAlign: "center",
+        }}
+      >
+        {/* Available for work pill */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          style={{ marginBottom: "2rem" }}
         >
           <span
-            className="inline-flex items-center gap-2 text-xs font-mono tracking-[0.28em] uppercase mb-8 px-4 py-2 rounded-full"
             style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              fontSize: "0.7rem",
+              fontFamily: "var(--font-geist-mono), monospace",
+              letterSpacing: "0.28em",
+              textTransform: "uppercase",
               color: "var(--accent-light)",
               border: "1px solid rgba(37,87,54,0.35)",
               background: "rgba(37,87,54,0.08)",
+              padding: "0.5rem 1.125rem",
+              borderRadius: "999px",
             }}
           >
             <span
-              className="w-1.5 h-1.5 rounded-full animate-pulse"
-              style={{ background: "var(--accent-light)" }}
+              style={{
+                width: "6px",
+                height: "6px",
+                borderRadius: "50%",
+                background: "var(--accent-light)",
+                animation: "pulse 2s cubic-bezier(0.4,0,0.6,1) infinite",
+              }}
             />
             Available for work
           </span>
         </motion.div>
 
+        {/* Name */}
         <motion.h1
-          className="text-[clamp(3.5rem,10vw,7rem)] font-bold leading-[1.02] tracking-tight mb-5"
-          style={{ color: "var(--text-primary)" }}
+          style={{
+            fontSize: "clamp(3.5rem, 10vw, 7rem)",
+            fontWeight: 700,
+            lineHeight: 1.02,
+            letterSpacing: "-0.02em",
+            color: "var(--text-primary)",
+            marginBottom: "1.25rem",
+          }}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
@@ -79,17 +123,31 @@ export default function Hero() {
           </span>
         </motion.h1>
 
+        {/* Roles */}
         <motion.div
-          className="flex items-center justify-center gap-3 mb-6 flex-wrap"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "0.75rem",
+            marginBottom: "1.5rem",
+            flexWrap: "wrap",
+          }}
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.18 }}
         >
           {roles.map((role, i) => (
-            <span key={role} className="flex items-center gap-3">
+            <span
+              key={role}
+              style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}
+            >
               <span
-                className="text-base md:text-lg font-medium"
-                style={{ color: "var(--text-secondary)" }}
+                style={{
+                  fontSize: "clamp(1rem, 2.2vw, 1.25rem)",
+                  fontWeight: 500,
+                  color: "var(--text-secondary)",
+                }}
               >
                 {role}
               </span>
@@ -100,57 +158,91 @@ export default function Hero() {
           ))}
         </motion.div>
 
+        {/* Tagline */}
         <motion.p
-          className="text-base md:text-lg max-w-xl mx-auto leading-relaxed mb-10"
-          style={{ color: "var(--text-secondary)" }}
+          style={{
+            fontSize: "clamp(0.95rem, 1.8vw, 1.125rem)",
+            maxWidth: "580px",
+            margin: "0 auto 2.5rem",
+            lineHeight: 1.75,
+            color: "var(--text-secondary)",
+          }}
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.26 }}
         >
-          I build intelligent data pipelines, ML systems, and end-to-end
-          data products — turning raw data into real business value.
+          I build intelligent data pipelines, ML systems, and modern web
+          products — turning complex data and ideas into real business value.
         </motion.p>
 
+        {/* CTAs */}
         <motion.div
-          className="flex items-center justify-center gap-4 flex-wrap mb-16"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "1rem",
+            flexWrap: "wrap",
+            marginBottom: "4rem",
+          }}
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.34 }}
         >
           <a
             href="#projects"
-            className="px-7 py-3.5 rounded-full font-semibold text-sm transition-all duration-300 hover:scale-105 active:scale-95"
             style={{
+              padding: "0.875rem 2rem",
+              borderRadius: "999px",
+              fontWeight: 600,
+              fontSize: "0.9375rem",
               background: "var(--accent)",
               color: "var(--text-primary)",
               boxShadow: "0 0 30px var(--accent-glow)",
+              textDecoration: "none",
+              transition: "transform 0.2s, background 0.2s, box-shadow 0.2s",
+              display: "inline-block",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.background = "var(--accent-mid)";
-              (e.currentTarget as HTMLElement).style.boxShadow = "0 0 44px rgba(37,87,54,0.5)";
+              const el = e.currentTarget as HTMLElement;
+              el.style.background = "var(--accent-mid)";
+              el.style.boxShadow = "0 0 44px rgba(37,87,54,0.5)";
+              el.style.transform = "scale(1.05)";
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLElement).style.background = "var(--accent)";
-              (e.currentTarget as HTMLElement).style.boxShadow = "0 0 30px var(--accent-glow)";
+              const el = e.currentTarget as HTMLElement;
+              el.style.background = "var(--accent)";
+              el.style.boxShadow = "0 0 30px var(--accent-glow)";
+              el.style.transform = "scale(1)";
             }}
           >
             View my work
           </a>
           <a
             href="#contact"
-            className="px-7 py-3.5 rounded-full font-semibold text-sm transition-all duration-300 hover:scale-105 active:scale-95"
             style={{
+              padding: "0.875rem 2rem",
+              borderRadius: "999px",
+              fontWeight: 600,
+              fontSize: "0.9375rem",
               border: "1px solid var(--border)",
               color: "var(--text-secondary)",
               background: "transparent",
+              textDecoration: "none",
+              transition: "transform 0.2s, border-color 0.2s, color 0.2s",
+              display: "inline-block",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.borderColor = "var(--accent-mid)";
-              (e.currentTarget as HTMLElement).style.color = "var(--text-primary)";
+              const el = e.currentTarget as HTMLElement;
+              el.style.borderColor = "var(--accent-mid)";
+              el.style.color = "var(--text-primary)";
+              el.style.transform = "scale(1.05)";
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLElement).style.borderColor = "var(--border)";
-              (e.currentTarget as HTMLElement).style.color = "var(--text-secondary)";
+              const el = e.currentTarget as HTMLElement;
+              el.style.borderColor = "var(--border)";
+              el.style.color = "var(--text-secondary)";
+              el.style.transform = "scale(1)";
             }}
           >
             Get in touch
@@ -159,8 +251,13 @@ export default function Hero() {
 
         {/* Stats bar */}
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-px overflow-hidden rounded-2xl"
-          style={{ border: "1px solid var(--border)" }}
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(4, 1fr)",
+            border: "1px solid var(--border)",
+            borderRadius: "1rem",
+            overflow: "hidden",
+          }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.44 }}
@@ -168,21 +265,34 @@ export default function Hero() {
           {stats.map((stat, i) => (
             <div
               key={stat.label}
-              className="flex flex-col items-center py-5 px-4"
               style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                padding: "1.25rem 1rem",
                 background: "var(--bg-card)",
-                borderRight: i < stats.length - 1 ? "1px solid var(--border)" : "none",
+                borderRight:
+                  i < stats.length - 1 ? "1px solid var(--border)" : "none",
               }}
             >
               <span
-                className="text-2xl md:text-3xl font-bold mb-1"
-                style={{ color: "var(--text-primary)" }}
+                style={{
+                  fontSize: "clamp(1.375rem, 3vw, 1.875rem)",
+                  fontWeight: 700,
+                  color: "var(--text-primary)",
+                  marginBottom: "0.25rem",
+                }}
               >
                 {stat.value}
               </span>
               <span
-                className="text-xs font-mono uppercase tracking-wider"
-                style={{ color: "var(--text-muted)" }}
+                style={{
+                  fontSize: "0.65rem",
+                  fontFamily: "var(--font-geist-mono), monospace",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.1em",
+                  color: "var(--text-muted)",
+                }}
               >
                 {stat.label}
               </span>
@@ -193,20 +303,33 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        style={{
+          position: "absolute",
+          bottom: "2rem",
+          left: "50%",
+          transform: "translateX(-50%)",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "0.5rem",
+        }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.1, duration: 0.6 }}
       >
         <span
-          className="text-xs font-mono tracking-widest uppercase"
-          style={{ color: "var(--text-muted)" }}
+          style={{
+            fontSize: "0.65rem",
+            fontFamily: "var(--font-geist-mono), monospace",
+            letterSpacing: "0.2em",
+            textTransform: "uppercase",
+            color: "var(--text-muted)",
+          }}
         >
           Scroll
         </span>
         <motion.div
-          className="w-px h-10"
-          style={{ background: "var(--accent)" }}
+          style={{ width: "1px", height: "2.5rem", background: "var(--accent)" }}
           animate={{ scaleY: [0.3, 1, 0.3] }}
           transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
         />
