@@ -9,7 +9,7 @@ const fadeUp = makeFadeUp(0.08);
 
 export default function Skills() {
   return (
-    <SectionWrapper id="skills">
+    <SectionWrapper id="skills" tinted>
       <SectionHeader index="02" label="Skills" title="What I work with" />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">

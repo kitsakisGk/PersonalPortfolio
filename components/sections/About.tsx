@@ -9,7 +9,7 @@ const fadeUp = makeFadeUp(0.1);
 
 export default function About() {
   return (
-    <SectionWrapper id="about" divider={false}>
+    <SectionWrapper id="about" tinted>
       <SectionHeader index="01" label="About" title="Who I am" />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
@@ -24,7 +24,11 @@ export default function About() {
             custom={1}
             variants={fadeUp}
           >
-            {personal.bio}
+            Hi, I&apos;m Giorgos — a Data Engineer and ML enthusiast based in Athens,
+            Greece. I specialize in building robust ETL pipelines, data
+            lakehouses, and ML solutions using modern stacks like Databricks,
+            Informatica, and Azure. Currently working at Accenture and
+            completing my M.Sc. in AI &amp; Data Science at AUEB.
           </motion.p>
 
           <motion.div
@@ -39,7 +43,7 @@ export default function About() {
               { label: "Location", value: "Athens, Greece" },
               { label: "Status", value: "Available for work" },
               { label: "Citizenship", value: "EU Citizen" },
-              { label: "MSc", value: "AI & Data Science" },
+              { label: "Phone", value: "+30 6985774053" },
             ].map(({ label, value }) => (
               <div
                 key={label}
