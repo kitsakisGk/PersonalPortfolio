@@ -1,8 +1,8 @@
-export const personal = {
+﻿export const personal = {
   name: "Georgios Kitsakis",
   initials: "GK",
-  role: "Data Engineer",
-  tagline: "M.Sc AI & Data Science | Data Engineer",
+  role: "Data Engineer & Web Developer",
+  tagline: "M.Sc AI & Data Science | Data Engineer | Web Developer",
   email: "kitsakisgk@gmail.com",
   phone: "+30 6985774053",
   location: "Athens, Greece",
@@ -10,7 +10,7 @@ export const personal = {
   github: "https://github.com/kitsakisGk",
   website: "https://kitsakisgk.github.io/Kitsakis-Georgios-Portfolio",
   euCitizen: true,
-  bio: "Data Engineer specialized in building ETL pipelines and ML solutions with modern data stacks including Informatica, Databricks, and Apache Kafka for streaming on cloud platforms (Azure). Proficient in Python (PyTorch, TensorFlow, scikit-learn) for ML model development and SQL (Oracle, MS SQL) for data engineering. Currently pursuing M.Sc. in AI & Data Science at AUEB, combining academic knowledge with hands-on industry experience.",
+  bio: "Data Engineer specialized in building ETL pipelines and ML solutions with modern data stacks including Informatica, Databricks, and Apache Kafka for streaming on cloud platforms (Azure). Also building modern web products with Next.js, TypeScript, and React. Currently pursuing M.Sc. in AI & Data Science at AUEB, combining academic knowledge with hands-on industry experience.",
 };
 
 export const experience = [
@@ -19,7 +19,7 @@ export const experience = [
     role: "Data Engineer",
     period: "Apr 2026 – Present",
     bullets: [
-      "Update me with your actual responsibilities here",
+      "Designing and building the Data Warehouse for Intrum Hellas",
     ],
   },
   {
@@ -61,7 +61,7 @@ export const education = [
 export const skillGroups = [
   {
     label: "Languages",
-    skills: ["Python", "SQL", "Java", "JavaScript", "Node.js"],
+    skills: ["Python", "SQL", "TypeScript", "JavaScript", "Java", "Node.js"],
   },
   {
     label: "ML & AI",
@@ -79,15 +79,19 @@ export const skillGroups = [
   },
   {
     label: "Cloud & Platforms",
-    skills: ["Azure", "Databricks", "LakeHouse", "Docker"],
+    skills: ["Azure", "Databricks", "LakeHouse", "Docker", "Vercel"],
+  },
+  {
+    label: "Web & Frameworks",
+    skills: ["Next.js", "React", "Tailwind CSS", "Framer Motion", "REST APIs", "Spring Boot"],
   },
   {
     label: "Databases",
     skills: ["Oracle", "MS SQL", "PostgreSQL"],
   },
   {
-    label: "Tools & Viz",
-    skills: ["Power BI", "Tableau", "Git", "REST APIs", "Spring Boot"],
+    label: "Tools & DevOps",
+    skills: ["Git", "GitHub Actions", "CI/CD", "Power BI", "Tableau"],
   },
 ];
 
@@ -233,8 +237,8 @@ export const certifications = [
 ];
 
 export const languages = [
-  { lang: "Greek", level: "Native" },
-  { lang: "English", level: "Fluent" },
-  { lang: "Spanish", level: "Intermediate" },
-  { lang: "German", level: "Beginner" },
+  { lang: "Greek", level: "Native", detail: "C2" },
+  { lang: "English", level: "Fluent", detail: "C1" },
+  { lang: "Spanish", level: "Intermediate", detail: "B1" },
+  { lang: "German", level: "Beginner", detail: "A2" },
 ];
