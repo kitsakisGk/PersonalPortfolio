@@ -5,48 +5,65 @@ import { skillGroups, languages } from "@/lib/data";
 import { fadeUp as makeFadeUp } from "@/lib/motion";
 import SectionWrapper, { SectionHeader } from "@/components/SectionWrapper";
 
-const fadeUp = makeFadeUp(0.08);
+const fadeUp = makeFadeUp(0.07);
 
 export default function Skills() {
   return (
-    <SectionWrapper id="skills" tinted>
+    <SectionWrapper id="skills">
       <SectionHeader index="02" label="Skills" title="What I work with" />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 310px), 1fr))",
+          gap: "1rem",
+          marginBottom: "1rem",
+        }}
+      >
         {skillGroups.map((group, i) => (
           <motion.div
             key={group.label}
-            className="rounded-2xl p-6"
-            style={{
-              background: "var(--bg-card)",
-              border: "1px solid var(--border)",
-            }}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
+            viewport={{ once: true, margin: "-50px" }}
             custom={i + 1}
             variants={fadeUp}
             whileHover={{
-              borderColor: "rgba(37,87,54,0.5)",
-              boxShadow: "0 0 28px rgba(37,87,54,0.12)",
+              borderColor: "rgba(37,87,54,0.55)",
+              boxShadow: "0 0 28px rgba(37,87,54,0.1)",
             }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.18 }}
+            style={{
+              padding: "1.5rem",
+              borderRadius: "1rem",
+              background: "var(--bg-card)",
+              border: "1px solid var(--border)",
+            }}
           >
             <p
-              className="text-xs font-mono tracking-widest uppercase mb-4"
-              style={{ color: "var(--accent-light)" }}
+              style={{
+                fontSize: "0.65rem",
+                fontFamily: "var(--font-geist-mono), monospace",
+                letterSpacing: "0.22em",
+                textTransform: "uppercase",
+                color: "var(--accent-light)",
+                marginBottom: "1rem",
+              }}
             >
               {group.label}
             </p>
-            <div className="flex flex-wrap gap-2">
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
               {group.skills.map((skill) => (
                 <span
                   key={skill}
-                  className="text-xs px-3 py-1.5 rounded-full font-medium"
                   style={{
-                    background: "rgba(37,87,54,0.15)",
+                    fontSize: "0.78rem",
+                    padding: "0.35rem 0.75rem",
+                    borderRadius: "999px",
+                    fontWeight: 500,
+                    background: "rgba(37,87,54,0.14)",
                     color: "var(--text-secondary)",
-                    border: "1px solid rgba(37,87,54,0.2)",
+                    border: "1px solid rgba(37,87,54,0.22)",
                   }}
                 >
                   {skill}
@@ -59,38 +76,44 @@ export default function Skills() {
 
       {/* Human Languages */}
       <motion.div
-        className="rounded-2xl p-6"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        custom={skillGroups.length + 1}
+        variants={fadeUp}
         style={{
+          padding: "1.5rem",
+          borderRadius: "1rem",
           background: "var(--bg-card)",
           border: "1px solid var(--border)",
         }}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-60px" }}
-        custom={skillGroups.length + 1}
-        variants={fadeUp}
       >
         <p
-          className="text-xs font-mono tracking-widest uppercase mb-4"
-          style={{ color: "var(--accent-light)" }}
+          style={{
+            fontSize: "0.65rem",
+            fontFamily: "var(--font-geist-mono), monospace",
+            letterSpacing: "0.22em",
+            textTransform: "uppercase",
+            color: "var(--accent-light)",
+            marginBottom: "1rem",
+          }}
         >
           Human Languages
         </p>
-        <div className="flex flex-wrap gap-6">
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "1.5rem" }}>
           {languages.map(({ lang, level }) => (
-            <div key={lang} className="flex items-center gap-2">
-              <span
-                className="font-medium text-sm"
-                style={{ color: "var(--text-primary)" }}
-              >
+            <div key={lang} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+              <span style={{ fontSize: "0.9rem", fontWeight: 600, color: "var(--text-primary)" }}>
                 {lang}
               </span>
               <span
-                className="text-xs px-2.5 py-0.5 rounded-full"
                 style={{
-                  background: "rgba(37,87,54,0.15)",
+                  fontSize: "0.7rem",
+                  padding: "0.2rem 0.6rem",
+                  borderRadius: "999px",
+                  background: "rgba(37,87,54,0.14)",
                   color: "var(--text-secondary)",
-                  border: "1px solid rgba(37,87,54,0.2)",
+                  border: "1px solid rgba(37,87,54,0.22)",
                 }}
               >
                 {level}
