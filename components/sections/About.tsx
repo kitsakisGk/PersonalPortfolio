@@ -7,120 +7,168 @@ import SectionWrapper, { SectionHeader } from "@/components/SectionWrapper";
 
 const fadeUp = makeFadeUp(0.1);
 
+const stats = [
+  { label: "Location", value: "Athens, Greece" },
+  { label: "Status", value: "Available for work" },
+  { label: "Citizenship", value: "EU Citizen" },
+  { label: "Phone", value: "+30 6985774053" },
+];
+
 export default function About() {
   return (
     <SectionWrapper id="about" tinted>
       <SectionHeader index="01" label="About" title="Who I am" />
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-        {/* Left — bio + stats */}
-        <div>
-          <motion.p
-            className="text-base md:text-lg leading-relaxed mb-8"
-            style={{ color: "var(--text-secondary)" }}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-            custom={1}
-            variants={fadeUp}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 440px), 1fr))",
+          gap: "3.5rem",
+          alignItems: "start",
+        }}
+      >
+        {/* Left — bio + stat cards */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          custom={1}
+          variants={fadeUp}
+        >
+          <p
+            style={{
+              fontSize: "1.0625rem",
+              lineHeight: 1.75,
+              color: "var(--text-secondary)",
+              marginBottom: "2rem",
+            }}
           >
-            Hi, I&apos;m Giorgos — a Data Engineer and ML enthusiast based in Athens,
-            Greece. I specialize in building robust ETL pipelines, data
+            Hi, I&apos;m Giorgos — a Data Engineer and ML enthusiast based in
+            Athens, Greece. I specialize in building robust ETL pipelines, data
             lakehouses, and ML solutions using modern stacks like Databricks,
-            Informatica, and Azure. Currently working at Accenture and
-            completing my M.Sc. in AI &amp; Data Science at AUEB.
-          </motion.p>
+            Informatica, and Azure. Currently working at Intrum and completing my
+            M.Sc. in AI &amp; Data Science at AUEB.
+          </p>
 
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              gap: "0.75rem",
+            }}
+          >
+            {stats.map(({ label, value }) => (
+              <div
+                key={label}
+                style={{
+                  padding: "1rem 1.25rem",
+                  borderRadius: "0.875rem",
+                  background: "var(--bg-card)",
+                  border: "1px solid var(--border)",
+                }}
+              >
+                <p
+                  style={{
+                    fontSize: "0.65rem",
+                    fontFamily: "var(--font-geist-mono), monospace",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.12em",
+                    color: "var(--accent-light)",
+                    marginBottom: "0.3rem",
+                  }}
+                >
+                  {label}
+                </p>
+                <p
+                  style={{
+                    fontSize: "0.875rem",
+                    fontWeight: 600,
+                    color: "var(--text-primary)",
+                  }}
+                >
+                  {value}
+                </p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Right — experience + education */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "2.5rem" }}>
+          {/* Experience */}
           <motion.div
-            className="grid grid-cols-2 gap-3"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
             custom={2}
             variants={fadeUp}
           >
-            {[
-              { label: "Location", value: "Athens, Greece" },
-              { label: "Status", value: "Available for work" },
-              { label: "Citizenship", value: "EU Citizen" },
-              { label: "Phone", value: "+30 6985774053" },
-            ].map(({ label, value }) => (
-              <div
-                key={label}
-                className="p-4 rounded-xl"
-                style={{
-                  background: "var(--bg-card)",
-                  border: "1px solid var(--border)",
-                }}
-              >
-                <p
-                  className="text-xs font-mono uppercase tracking-wider mb-1"
-                  style={{ color: "var(--accent-light)" }}
-                >
-                  {label}
-                </p>
-                <p
-                  className="text-sm font-medium"
-                  style={{ color: "var(--text-primary)" }}
-                >
-                  {value}
-                </p>
-              </div>
-            ))}
-          </motion.div>
-        </div>
-
-        {/* Right — experience + education */}
-        <div className="space-y-10">
-          {/* Experience */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-            custom={3}
-            variants={fadeUp}
-          >
             <p
-              className="text-xs font-mono tracking-[0.25em] uppercase mb-5"
-              style={{ color: "var(--accent-light)" }}
+              style={{
+                fontSize: "0.7rem",
+                fontFamily: "var(--font-geist-mono), monospace",
+                letterSpacing: "0.22em",
+                textTransform: "uppercase",
+                color: "var(--accent-light)",
+                marginBottom: "1.25rem",
+              }}
             >
               Experience
             </p>
-            <div className="space-y-6">
+            <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
               {experience.map((job) => (
                 <div
                   key={job.company}
-                  className="pl-5"
-                  style={{ borderLeft: "2px solid var(--accent)" }}
+                  style={{
+                    paddingLeft: "1.125rem",
+                    borderLeft: "2px solid var(--accent)",
+                  }}
                 >
-                  <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "flex-start",
+                      gap: "0.75rem",
+                      marginBottom: "0.4rem",
+                      flexWrap: "wrap",
+                    }}
+                  >
                     <div>
                       <p
-                        className="font-semibold text-sm"
-                        style={{ color: "var(--text-primary)" }}
+                        style={{
+                          fontSize: "0.9rem",
+                          fontWeight: 600,
+                          color: "var(--text-primary)",
+                        }}
                       >
                         {job.role}
                       </p>
                       <p
-                        className="text-sm"
-                        style={{ color: "var(--accent-light)" }}
+                        style={{
+                          fontSize: "0.875rem",
+                          color: "var(--accent-light)",
+                        }}
                       >
                         {job.company}
                       </p>
                     </div>
                     <span
-                      className="text-xs font-mono"
-                      style={{ color: "var(--text-muted)" }}
+                      style={{
+                        fontSize: "0.75rem",
+                        fontFamily: "var(--font-geist-mono), monospace",
+                        color: "var(--text-muted)",
+                        whiteSpace: "nowrap",
+                      }}
                     >
                       {job.period}
                     </span>
                   </div>
-                  <ul className="space-y-1">
+                  <ul style={{ display: "flex", flexDirection: "column", gap: "0.2rem" }}>
                     {job.bullets.map((b) => (
                       <li
                         key={b}
-                        className="text-sm"
-                        style={{ color: "var(--text-secondary)" }}
+                        style={{ fontSize: "0.8125rem", color: "var(--text-secondary)" }}
                       >
                         · {b}
                       </li>
@@ -136,47 +184,65 @@ export default function About() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
-            custom={4}
+            custom={3}
             variants={fadeUp}
           >
             <p
-              className="text-xs font-mono tracking-[0.25em] uppercase mb-5"
-              style={{ color: "var(--accent-light)" }}
+              style={{
+                fontSize: "0.7rem",
+                fontFamily: "var(--font-geist-mono), monospace",
+                letterSpacing: "0.22em",
+                textTransform: "uppercase",
+                color: "var(--accent-light)",
+                marginBottom: "1.25rem",
+              }}
             >
               Education
             </p>
-            <div className="space-y-6">
+            <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
               {education.map((ed) => (
                 <div
                   key={ed.degree}
-                  className="pl-5"
-                  style={{ borderLeft: "2px solid var(--accent)" }}
+                  style={{
+                    paddingLeft: "1.125rem",
+                    borderLeft: "2px solid var(--accent)",
+                  }}
                 >
-                  <div className="flex flex-wrap items-start justify-between gap-2 mb-1">
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "flex-start",
+                      gap: "0.75rem",
+                      marginBottom: "0.25rem",
+                      flexWrap: "wrap",
+                    }}
+                  >
                     <p
-                      className="font-semibold text-sm"
-                      style={{ color: "var(--text-primary)" }}
+                      style={{
+                        fontSize: "0.9rem",
+                        fontWeight: 600,
+                        color: "var(--text-primary)",
+                      }}
                     >
                       {ed.degree}
                     </p>
                     <span
-                      className="text-xs font-mono"
-                      style={{ color: "var(--text-muted)" }}
+                      style={{
+                        fontSize: "0.75rem",
+                        fontFamily: "var(--font-geist-mono), monospace",
+                        color: "var(--text-muted)",
+                        whiteSpace: "nowrap",
+                      }}
                     >
                       {ed.period}
                     </span>
                   </div>
-                  <p
-                    className="text-sm mb-1"
-                    style={{ color: "var(--accent-light)" }}
-                  >
+                  <p style={{ fontSize: "0.875rem", color: "var(--accent-light)", marginBottom: "0.25rem" }}>
                     {ed.school}
                   </p>
                   {ed.note && (
-                    <p
-                      className="text-xs leading-relaxed"
-                      style={{ color: "var(--text-secondary)" }}
-                    >
+                    <p style={{ fontSize: "0.78rem", color: "var(--text-secondary)", lineHeight: 1.6 }}>
                       {ed.note}
                     </p>
                   )}
