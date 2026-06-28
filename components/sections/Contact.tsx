@@ -5,7 +5,7 @@ import { personal } from "@/lib/data";
 import { fadeUp as makeFadeUp } from "@/lib/motion";
 import SectionWrapper from "@/components/SectionWrapper";
 
-const fadeUp = makeFadeUp(0.1);
+const fadeUp = makeFadeUp(0.12);
 
 function LinkedInIcon() {
   return (
@@ -27,7 +27,7 @@ function GitHubIcon() {
 
 function MailIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <rect x="2" y="4" width="20" height="16" rx="2" />
       <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
     </svg>
@@ -36,8 +36,8 @@ function MailIcon() {
 
 export default function Contact() {
   return (
-    <SectionWrapper id="contact">
-      <div className="max-w-2xl mx-auto text-center">
+    <SectionWrapper id="contact" tinted>
+      <div style={{ maxWidth: "640px", margin: "0 auto", textAlign: "center" }}>
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -46,20 +46,35 @@ export default function Contact() {
           variants={fadeUp}
         >
           <p
-            className="text-xs font-mono tracking-[0.3em] uppercase mb-3"
-            style={{ color: "var(--accent-light)" }}
+            style={{
+              fontSize: "0.7rem",
+              fontFamily: "var(--font-geist-mono), monospace",
+              letterSpacing: "0.28em",
+              textTransform: "uppercase",
+              color: "var(--accent-light)",
+              marginBottom: "0.75rem",
+            }}
           >
             05 — Contact
           </p>
           <h2
-            className="text-4xl md:text-6xl font-bold mb-6"
-            style={{ color: "var(--text-primary)" }}
+            style={{
+              fontSize: "clamp(2.5rem, 7vw, 4.5rem)",
+              fontWeight: 700,
+              lineHeight: 1.05,
+              color: "var(--text-primary)",
+              marginBottom: "1.25rem",
+            }}
           >
             Let&apos;s work together
           </h2>
           <p
-            className="text-lg max-w-xl mx-auto mb-12 leading-relaxed"
-            style={{ color: "var(--text-secondary)" }}
+            style={{
+              fontSize: "1.0625rem",
+              color: "var(--text-secondary)",
+              lineHeight: 1.7,
+              marginBottom: "2.5rem",
+            }}
           >
             I&apos;m open to data engineering roles, ML projects, and freelance
             collaborations. Based in Athens — happy to work remotely anywhere in
@@ -67,30 +82,42 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        {/* Primary CTA */}
+        {/* Email CTA */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
           custom={1}
           variants={fadeUp}
-          className="mb-12"
+          style={{ marginBottom: "2rem" }}
         >
           <a
             href={`mailto:${personal.email}`}
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold text-base transition-all duration-300 hover:scale-105 active:scale-95"
             style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "0.625rem",
+              padding: "1rem 2rem",
+              borderRadius: "999px",
+              fontWeight: 600,
+              fontSize: "0.9375rem",
               background: "var(--accent)",
               color: "var(--text-primary)",
               boxShadow: "0 0 40px var(--accent-glow)",
+              textDecoration: "none",
+              transition: "transform 0.2s, background 0.2s, box-shadow 0.2s",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.background = "var(--accent-mid)";
-              (e.currentTarget as HTMLElement).style.boxShadow = "0 0 60px rgba(37,87,54,0.5)";
+              const el = e.currentTarget as HTMLElement;
+              el.style.background = "var(--accent-mid)";
+              el.style.boxShadow = "0 0 60px rgba(37,87,54,0.5)";
+              el.style.transform = "scale(1.04)";
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLElement).style.background = "var(--accent)";
-              (e.currentTarget as HTMLElement).style.boxShadow = "0 0 40px var(--accent-glow)";
+              const el = e.currentTarget as HTMLElement;
+              el.style.background = "var(--accent)";
+              el.style.boxShadow = "0 0 40px var(--accent-glow)";
+              el.style.transform = "scale(1)";
             }}
           >
             <MailIcon />
@@ -100,25 +127,29 @@ export default function Contact() {
 
         {/* Social links */}
         <motion.div
-          className="flex items-center justify-center gap-6"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
           custom={2}
           variants={fadeUp}
+          style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "1.5rem" }}
         >
           <a
             href={personal.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-sm font-medium transition-colors duration-200"
-            style={{ color: "var(--text-secondary)" }}
-            onMouseEnter={(e) =>
-              ((e.currentTarget as HTMLElement).style.color = "var(--accent-light)")
-            }
-            onMouseLeave={(e) =>
-              ((e.currentTarget as HTMLElement).style.color = "var(--text-secondary)")
-            }
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0.4rem",
+              fontSize: "0.875rem",
+              fontWeight: 500,
+              color: "var(--text-secondary)",
+              textDecoration: "none",
+              transition: "color 0.2s",
+            }}
+            onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--accent-light)")}
+            onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--text-secondary)")}
           >
             <LinkedInIcon />
             LinkedIn
@@ -128,36 +159,40 @@ export default function Contact() {
             href={personal.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-sm font-medium transition-colors duration-200"
-            style={{ color: "var(--text-secondary)" }}
-            onMouseEnter={(e) =>
-              ((e.currentTarget as HTMLElement).style.color = "var(--accent-light)")
-            }
-            onMouseLeave={(e) =>
-              ((e.currentTarget as HTMLElement).style.color = "var(--text-secondary)")
-            }
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0.4rem",
+              fontSize: "0.875rem",
+              fontWeight: 500,
+              color: "var(--text-secondary)",
+              textDecoration: "none",
+              transition: "color 0.2s",
+            }}
+            onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--accent-light)")}
+            onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--text-secondary)")}
           >
             <GitHubIcon />
             GitHub
           </a>
         </motion.div>
-      </div>
 
-      {/* Footer */}
-      <motion.div
-        className="mt-20 text-center"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.4 }}
-      >
-        <p
-          className="text-xs font-mono"
-          style={{ color: "var(--text-muted)" }}
+        {/* Footer */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+          style={{
+            marginTop: "4rem",
+            fontSize: "0.75rem",
+            fontFamily: "var(--font-geist-mono), monospace",
+            color: "var(--text-muted)",
+          }}
         >
           © {new Date().getFullYear()} Georgios Kitsakis · Athens, Greece
-        </p>
-      </motion.div>
+        </motion.p>
+      </div>
     </SectionWrapper>
   );
 }
