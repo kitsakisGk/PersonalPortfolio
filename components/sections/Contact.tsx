@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { personal } from "@/lib/data";
@@ -55,7 +55,7 @@ export default function Contact() {
               marginBottom: "0.75rem",
             }}
           >
-            05 — Contact
+            05 β€” Contact
           </p>
           <h2
             style={{
@@ -76,9 +76,7 @@ export default function Contact() {
               marginBottom: "2.5rem",
             }}
           >
-            I&apos;m open to data engineering roles, ML projects, and freelance
-            collaborations. Based in Athens — happy to work remotely anywhere in
-            Europe.
+            I&apos;m open to data engineering roles, ML projects, web development, and freelance collaborations. Based in Athens — happy to work remotely anywhere in Europe.
           </p>
         </motion.div>
 
@@ -101,7 +99,7 @@ export default function Contact() {
               borderRadius: "999px",
               fontWeight: 600,
               fontSize: "0.9375rem",
-              background: "var(--accent)",
+              background: "var(--accent-mid)",
               color: "var(--text-primary)",
               boxShadow: "0 0 40px var(--accent-glow)",
               textDecoration: "none",
@@ -109,13 +107,13 @@ export default function Contact() {
             }}
             onMouseEnter={(e) => {
               const el = e.currentTarget as HTMLElement;
-              el.style.background = "var(--accent-mid)";
+              el.style.background = "var(--accent-light)";
               el.style.boxShadow = "0 0 60px rgba(37,87,54,0.5)";
               el.style.transform = "scale(1.04)";
             }}
             onMouseLeave={(e) => {
               const el = e.currentTarget as HTMLElement;
-              el.style.background = "var(--accent)";
+              el.style.background = "var(--accent-mid)";
               el.style.boxShadow = "0 0 40px var(--accent-glow)";
               el.style.transform = "scale(1)";
             }}
@@ -154,7 +152,7 @@ export default function Contact() {
             <LinkedInIcon />
             LinkedIn
           </a>
-          <span style={{ color: "var(--text-muted)" }}>·</span>
+          <span style={{ color: "var(--text-muted)" }}>Β·</span>
           <a
             href={personal.github}
             target="_blank"
@@ -190,9 +188,12 @@ export default function Contact() {
             color: "var(--text-muted)",
           }}
         >
-          © {new Date().getFullYear()} Georgios Kitsakis · Athens, Greece
+          Β© {new Date().getFullYear()} Georgios Kitsakis Β· Athens, Greece
         </motion.p>
       </div>
     </SectionWrapper>
   );
 }
+
+
+
