@@ -8,6 +8,7 @@ interface SectionWrapperProps {
   children: ReactNode;
   className?: string;
   divider?: boolean;
+  tinted?: boolean;
 }
 
 export default function SectionWrapper({
@@ -15,18 +16,20 @@ export default function SectionWrapper({
   children,
   className = "",
   divider = true,
+  tinted = false,
 }: SectionWrapperProps) {
   return (
     <section
       id={id}
       className={`relative w-full py-24 md:py-32 ${className}`}
+      style={tinted ? { background: "var(--bg-secondary)" } : undefined}
     >
       {divider && (
         <div
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 pointer-events-none"
+          className="absolute top-0 left-0 right-0 h-px pointer-events-none"
           style={{
             background:
-              "linear-gradient(to bottom, transparent, var(--accent), transparent)",
+              "linear-gradient(to right, transparent, var(--border), transparent)",
           }}
         />
       )}
