@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { certifications } from "@/lib/data";
@@ -38,128 +38,196 @@ export default function Certifications() {
     <SectionWrapper id="certifications">
       {/* Header with Drive link */}
       <motion.div
-        className="mb-14"
+        style={{ marginBottom: "3.5rem" }}
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       >
         <p
-          className="text-xs font-mono tracking-[0.3em] uppercase mb-3"
-          style={{ color: "var(--accent-light)" }}
+          style={{
+            fontSize: "0.7rem",
+            fontFamily: "var(--font-geist-mono), monospace",
+            letterSpacing: "0.3em",
+            textTransform: "uppercase",
+            color: "var(--accent-light)",
+            marginBottom: "0.75rem",
+          }}
         >
           04 — Certifications
         </p>
-        <div className="flex items-end justify-between gap-4 flex-wrap">
+        <div
+          style={{
+            display: "flex",
+            alignItems: "flex-end",
+            justifyContent: "space-between",
+            gap: "1rem",
+            flexWrap: "wrap",
+          }}
+        >
           <h2
-            className="text-4xl md:text-5xl font-bold leading-tight"
-            style={{ color: "var(--text-primary)" }}
+            style={{
+              fontSize: "clamp(2.25rem, 5vw, 3.5rem)",
+              fontWeight: 700,
+              lineHeight: 1.08,
+              color: "var(--text-primary)",
+            }}
           >
             Credentials
           </h2>
-            <a
-              href="https://drive.google.com/drive/folders/1isse8r3at14oIzJp5PthxZ9luhLsppKV"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs font-mono tracking-wide transition-colors duration-200 pb-1"
-              style={{
-                color: "var(--text-muted)",
-                borderBottom: "1px solid var(--border)",
-              }}
-              onMouseEnter={(e) =>
-                ((e.currentTarget as HTMLElement).style.color =
-                  "var(--accent-light)")
-              }
-              onMouseLeave={(e) =>
-                ((e.currentTarget as HTMLElement).style.color =
-                  "var(--text-muted)")
-              }
-            >
-              View all certificates →
-            </a>
-          </div>
-        </motion.div>
+          <a
+            href="https://drive.google.com/drive/folders/1isse8r3at14oIzJp5PthxZ9luhLsppKV"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              fontSize: "0.72rem",
+              fontFamily: "var(--font-geist-mono), monospace",
+              letterSpacing: "0.06em",
+              color: "var(--text-muted)",
+              borderBottom: "1px solid var(--border)",
+              paddingBottom: "0.25rem",
+              textDecoration: "none",
+              transition: "color 0.2s",
+            }}
+            onMouseEnter={(e) =>
+              ((e.currentTarget as HTMLElement).style.color = "var(--accent-light)")
+            }
+            onMouseLeave={(e) =>
+              ((e.currentTarget as HTMLElement).style.color = "var(--text-muted)")
+            }
+          >
+            View all certificates →
+          </a>
+        </div>
+      </motion.div>
 
       {/* Grouped categories */}
-        <div className="space-y-10">
-          {Object.entries(grouped).map(([category, certs], groupIdx) => (
-            <motion.div
-              key={category}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-60px" }}
-              custom={groupIdx + 1}
-              variants={fadeUp}
+      <div style={{ display: "flex", flexDirection: "column", gap: "2.5rem" }}>
+        {Object.entries(grouped).map(([category, certs], groupIdx) => (
+          <motion.div
+            key={category}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            custom={groupIdx + 1}
+            variants={fadeUp}
+          >
+            <p
+              style={{
+                fontSize: "0.65rem",
+                fontFamily: "var(--font-geist-mono), monospace",
+                letterSpacing: "0.22em",
+                textTransform: "uppercase",
+                color: "var(--accent-light)",
+                marginBottom: "1rem",
+              }}
             >
-              <p
-                className="text-xs font-mono tracking-widest uppercase mb-4"
-                style={{ color: "var(--accent-light)" }}
-              >
-                {categoryLabels[category]}
-              </p>
+              {categoryLabels[category]}
+            </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                {certs.map((cert, i) => (
-                  <motion.div
-                    key={cert.name}
-                    className="flex items-center gap-4 rounded-xl px-4 py-3.5"
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 300px), 1fr))",
+                gap: "0.75rem",
+              }}
+            >
+              {certs.map((cert, i) => (
+                <motion.div
+                  key={cert.name}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-40px" }}
+                  custom={groupIdx * 10 + i}
+                  variants={fadeUp}
+                  whileHover={{
+                    borderColor: "rgba(37,87,54,0.45)",
+                    boxShadow: "0 0 20px rgba(37,87,54,0.08)",
+                    x: 2,
+                  }}
+                  transition={{ duration: 0.18 }}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "1rem",
+                    padding: "0.875rem 1rem",
+                    borderRadius: "0.875rem",
+                    background: "var(--bg-card)",
+                    border: "1px solid var(--border)",
+                  }}
+                >
+                  {/* Issuer badge */}
+                  <div
                     style={{
-                      background: "var(--bg-card)",
-                      border: "1px solid var(--border)",
+                      width: "2.25rem",
+                      height: "2.25rem",
+                      borderRadius: "0.5rem",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontSize: "0.7rem",
+                      fontWeight: 700,
+                      fontFamily: "var(--font-geist-mono), monospace",
+                      flexShrink: 0,
+                      background: `${cert.color}18`,
+                      border: `1px solid ${cert.color}35`,
+                      color: cert.color,
                     }}
-                    whileHover={{
-                      borderColor: "rgba(37,87,54,0.45)",
-                      boxShadow: "0 0 20px rgba(37,87,54,0.08)",
-                      x: 2,
-                    }}
-                    transition={{ duration: 0.18 }}
-                    custom={groupIdx * 10 + i}
                   >
-                    {/* Issuer badge */}
-                    <div
-                      className="w-9 h-9 rounded-lg flex items-center justify-center text-xs font-bold shrink-0 font-mono"
+                    {getInitials(cert.issuer)}
+                  </div>
+
+                  <div style={{ minWidth: 0 }}>
+                    <p
                       style={{
-                        background: `${cert.color}18`,
-                        border: `1px solid ${cert.color}35`,
-                        color: cert.color,
+                        fontSize: "0.8125rem",
+                        fontWeight: 500,
+                        lineHeight: 1.35,
+                        color: "var(--text-primary)",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        whiteSpace: "nowrap",
+                      }}
+                      title={cert.name}
+                    >
+                      {cert.name}
+                    </p>
+                    <p
+                      style={{
+                        fontSize: "0.72rem",
+                        marginTop: "0.2rem",
+                        color: "var(--text-muted)",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        whiteSpace: "nowrap",
                       }}
                     >
-                      {getInitials(cert.issuer)}
-                    </div>
+                      {cert.note ?? cert.issuer}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        ))}
+      </div>
 
-                    <div className="min-w-0">
-                      <p
-                        className="text-sm font-medium leading-snug truncate"
-                        style={{ color: "var(--text-primary)" }}
-                        title={cert.name}
-                      >
-                        {cert.name}
-                      </p>
-                      <p
-                        className="text-xs mt-0.5 truncate"
-                        style={{ color: "var(--text-muted)" }}
-                      >
-                        {cert.note ?? cert.issuer}
-                      </p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Total count */}
-        <motion.p
-          className="mt-10 text-xs font-mono text-center"
-          style={{ color: "var(--text-muted)" }}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-        >
-          {certifications.length} credentials · verified via Google Drive
-        </motion.p>
+      {/* Total count */}
+      <motion.p
+        style={{
+          marginTop: "2.5rem",
+          fontSize: "0.72rem",
+          fontFamily: "var(--font-geist-mono), monospace",
+          textAlign: "center",
+          color: "var(--text-muted)",
+        }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.4 }}
+      >
+        {certifications.length} credentials · verified via Google Drive
+      </motion.p>
     </SectionWrapper>
   );
 }
