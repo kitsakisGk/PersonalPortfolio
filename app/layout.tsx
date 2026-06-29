@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Georgios Kitsakis — ML & Data Engineer",
+  title: "Georgios Kitsakis — Data Engineer & Web Developer",
   description:
-    "Personal portfolio of Georgios Kitsakis, ML & Data Engineer and Software Developer. Building intelligent systems, data pipelines, and modern web experiences.",
+    "Personal portfolio of Georgios Kitsakis — Data Engineer, ML Engineer and Web Developer. Building intelligent data systems, ML pipelines, and modern web products.",
   keywords: [
     "ML Engineer",
     "Data Engineer",
@@ -26,9 +26,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Georgios Kitsakis" }],
   openGraph: {
-    title: "Georgios Kitsakis — ML & Data Engineer",
+    title: "Georgios Kitsakis — Data Engineer & Web Developer",
     description:
-      "ML & Data Engineer building intelligent systems and data-driven products.",
+      "Data Engineer and Web Developer building intelligent systems and modern web products.",
     type: "website",
   },
 };
@@ -47,3 +47,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+
