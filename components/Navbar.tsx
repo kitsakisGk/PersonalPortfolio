@@ -42,8 +42,15 @@ export default function Navbar() {
           {/* Logo */}
           <a
             href="#home"
-            className="font-mono text-sm font-semibold tracking-widest uppercase"
-            style={{ color: "var(--accent-light)" }}
+            style={{
+              fontFamily: "var(--font-geist-mono), monospace",
+              fontSize: "1.125rem",
+              fontWeight: 700,
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              color: "var(--accent-light)",
+              textDecoration: "none",
+            }}
           >
             GK
           </a>
