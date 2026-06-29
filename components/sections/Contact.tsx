@@ -55,7 +55,7 @@ export default function Contact() {
               marginBottom: "0.75rem",
             }}
           >
-            05 β€” Contact
+            05 — Contact
           </p>
           <h2
             style={{

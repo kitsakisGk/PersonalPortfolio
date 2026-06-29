@@ -159,7 +159,7 @@ export default function Projects() {
               </h3>
               {"award" in project && project.award && (
                 <p style={{ fontSize: "0.72rem", fontFamily: "var(--font-geist-mono), monospace", color: "var(--accent-light)", marginBottom: "0.4rem" }}>
-                  π† {project.award}
+                  🏆 {project.award}
                 </p>
               )}
               <p style={{ fontSize: "0.8rem", color: "var(--text-secondary)", lineHeight: 1.6 }}>
@@ -214,7 +214,7 @@ export default function Projects() {
           onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--text-secondary)")}
         >
           <GitHubIcon />
-          View all projects on GitHub β†’
+          View all projects on GitHub →
         </a>
       </motion.div>
     </SectionWrapper>
