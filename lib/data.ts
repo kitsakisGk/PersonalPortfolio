@@ -97,6 +97,15 @@ export const skillGroups = [
 
 export const projects = [
   {
+    title: "Personal Portfolio Website",
+    subtitle: "Web Development",
+    description:
+      "This portfolio — built with Next.js 15, TypeScript, Tailwind CSS, and Framer Motion. Deployed on Vercel with CI/CD. Designed to be fast, modern, and client-acquisition focused.",
+    tags: ["Next.js", "TypeScript", "Framer Motion", "Vercel"],
+    github: "https://github.com/kitsakisGk/PersonalPortfolio",
+    featured: false,
+  },
+  {
     title: "Credit Risk Databricks Pipeline",
     subtitle: "Data Engineering · ML",
     description:
@@ -242,3 +251,4 @@ export const languages = [
   { lang: "Spanish", level: "Intermediate", detail: "B1" },
   { lang: "German", level: "Beginner", detail: "A2" },
 ];
+
