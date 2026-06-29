@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { personal, experience, education } from "@/lib/data";
@@ -43,11 +43,7 @@ export default function About() {
               marginBottom: "2rem",
             }}
           >
-            Hi, I&apos;m Giorgos — a Data Engineer and ML enthusiast based in
-            Athens, Greece. I specialize in building robust ETL pipelines, data
-            lakehouses, and ML solutions using modern stacks like Databricks,
-            Informatica, and Azure. Currently working at Intrum and completing my
-            M.Sc. in AI &amp; Data Science at AUEB.
+            Hi, I&apos;m Giorgos — a Data &amp; ML Engineer and web developer based in Athens, Greece. I build robust ETL pipelines, data lakehouses, ML solutions, and modern web products. Currently working at Intrum, building their Data Warehouse, and completing my M.Sc. in AI &amp; Data Science at AUEB.
           </p>
 
           <div
@@ -255,3 +251,4 @@ export default function About() {
     </SectionWrapper>
   );
 }
+
