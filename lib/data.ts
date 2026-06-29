@@ -47,8 +47,8 @@ export const education = [
   {
     degree: "Master of AI & Data Science",
     school: "Athens University of Economics and Business",
-    period: "Oct 2024 – Mar 2026",
-    note: "",
+    period: "Oct 2024 – Apr 2026",
+    note: "Graduated April 2026.",
   },
   {
     degree: "Bachelor of Informatics & Telematics",
