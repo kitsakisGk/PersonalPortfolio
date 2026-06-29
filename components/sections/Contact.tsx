@@ -152,7 +152,7 @@ export default function Contact() {
             <LinkedInIcon />
             LinkedIn
           </a>
-          <span style={{ color: "var(--text-muted)" }}>Β·</span>
+          <span style={{ color: "var(--text-muted)" }}>·</span>
           <a
             href={personal.github}
             target="_blank"
@@ -188,7 +188,7 @@ export default function Contact() {
             color: "var(--text-muted)",
           }}
         >
-          Β© {new Date().getFullYear()} Georgios Kitsakis Β· Athens, Greece
+          © {new Date().getFullYear()} Georgios Kitsakis · Athens, Greece
         </motion.p>
       </div>
     </SectionWrapper>
