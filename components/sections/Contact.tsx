@@ -152,7 +152,7 @@ export default function Contact() {
             <LinkedInIcon />
             LinkedIn
           </a>
-          <span style={{ color: "var(--text-muted)" }}>·</span>
+          <span style={{ color: "var(--accent)", fontSize: "1.1rem" }}>·</span>
           <a
             href={personal.github}
             target="_blank"
