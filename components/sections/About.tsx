@@ -11,7 +11,7 @@ const stats = [
   { label: "Location", value: "Athens, Greece" },
   { label: "Status", value: "Available for work" },
   { label: "Citizenship", value: "EU Citizen" },
-  { label: "Phone", value: "+30 6985774053" },
+  { label: "Freelance", value: "Open to projects" },
 ];
 
 export default function About() {
@@ -251,4 +251,5 @@ export default function About() {
     </SectionWrapper>
   );
 }
+
 
