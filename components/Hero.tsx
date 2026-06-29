@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-const roles = ["ML Engineer", "Data Engineer", "Web Developer"];
+const roles = ["Data Engineer", "ML Engineer", "Web Developer"];
 
 const stats = [
   { value: "2+", label: "Years experience" },
@@ -337,3 +337,4 @@ export default function Hero() {
     </section>
   );
 }
+
