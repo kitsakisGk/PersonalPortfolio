@@ -17,12 +17,16 @@ export const metadata: Metadata = {
   description:
     "Personal portfolio of Georgios Kitsakis — Data Engineer, ML Engineer and Web Developer. Building intelligent data systems, ML pipelines, and modern web products.",
   keywords: [
-    "ML Engineer",
     "Data Engineer",
-    "Software Developer",
+    "Web Developer",
+    "ML Engineer",
     "Python",
+    "Next.js",
     "Machine Learning",
+    "Databricks",
     "Portfolio",
+    "Athens",
+    "Greece",
   ],
   authors: [{ name: "Georgios Kitsakis" }],
   openGraph: {
@@ -30,6 +34,18 @@ export const metadata: Metadata = {
     description:
       "Data Engineer and Web Developer building intelligent systems and modern web products.",
     type: "website",
+    locale: "en_US",
+    siteName: "Georgios Kitsakis Portfolio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Georgios Kitsakis — Data Engineer & Web Developer",
+    description:
+      "Data Engineer and Web Developer building intelligent systems and modern web products.",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
