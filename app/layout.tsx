@@ -33,6 +33,7 @@ export const metadata: Metadata = {
     title: "Georgios Kitsakis — Data Engineer & Web Developer",
     description:
       "Data Engineer and Web Developer building intelligent systems and modern web products.",
+    url: "https://personal-portfolio-ten-lovat-32.vercel.app",
     type: "website",
     locale: "en_US",
     siteName: "Georgios Kitsakis Portfolio",
