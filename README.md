@@ -12,7 +12,7 @@
 
 **Author:** Georgios Kitsakis
 
-**Live Site:** [personal-portfolio-ten-lovat-32.vercel.app](https://personal-portfolio-ten-lovat-32.vercel.app)
+**Live Site:** [georgios-kitsakis.vercel.app](https://georgios-kitsakis.vercel.app)
 
 </div>
 
