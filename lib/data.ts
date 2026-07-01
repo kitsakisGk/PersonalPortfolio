@@ -6,7 +6,7 @@
   email: "kitsakisgk@gmail.com",
   phone: "+30 6985774053",
   location: "Athens, Greece",
-  linkedin: "https://www.linkedin.com/in/georgios-kitsakis/",
+  linkedin: "https://www.linkedin.com/in/georgios-kitsakis-gr/",
   github: "https://github.com/kitsakisGk",
   website: "https://kitsakisgk.github.io/Kitsakis-Georgios-Portfolio",
   euCitizen: true,
