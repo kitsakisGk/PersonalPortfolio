@@ -61,6 +61,17 @@ body {
   color: var(--text-primary);
 }
 
+/* Pulse animation for available-for-work dot */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* Scroll offset for fixed navbar */
+html {
+  scroll-padding-top: 80px;
+}
+
 /* Noise texture overlay */
 body::before {
   content: "";
