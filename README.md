@@ -2,7 +2,7 @@
 
 <div align="center">
 
-## Data Engineer · ML Engineer · Web Developer
+## Data Engineer · ML Engineer · Software Engineer
 
 ![Next.js](https://img.shields.io/badge/Next.js-15-000000?style=for-the-badge&logo=next.js&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
