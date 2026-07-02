@@ -247,7 +247,7 @@ export const certifications = [
 
 export const languages = [
   { lang: "Greek", level: "Native", detail: "C2" },
-  { lang: "English", level: "Fluent", detail: "C1" },
+  { lang: "English", level: "Fluent", detail: "C2" },
   { lang: "Spanish", level: "Intermediate", detail: "B1" },
   { lang: "German", level: "Beginner", detail: "A2" },
 ];
