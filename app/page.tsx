@@ -2,12 +2,12 @@ import ExperienceLayer from "@/components/system/ExperienceLayer";
 import HUD from "@/components/system/HUD";
 import Hero from "@/components/sections/Hero";
 import CapabilityTicker from "@/components/sections/CapabilityTicker";
-import Mission from "@/components/sections/Mission";
-import DeployLog from "@/components/sections/DeployLog";
-import Systems from "@/components/sections/Systems";
-import Stack from "@/components/sections/Stack";
-import Vault from "@/components/sections/Vault";
-import Transmit from "@/components/sections/Transmit";
+import About from "@/components/sections/About";
+import Experience from "@/components/sections/Experience";
+import Projects from "@/components/sections/Projects";
+import Skills from "@/components/sections/Skills";
+import Certifications from "@/components/sections/Certifications";
+import Contact from "@/components/sections/Contact";
 
 export default function Home() {
   return (
@@ -17,12 +17,12 @@ export default function Home() {
       <main className="w-full overflow-x-hidden">
         <Hero />
         <CapabilityTicker />
-        <Mission />
-        <DeployLog />
-        <Systems />
-        <Stack />
-        <Vault />
-        <Transmit />
+        <About />
+        <Experience />
+        <Projects />
+        <Skills />
+        <Certifications />
+        <Contact />
       </main>
     </>
   );

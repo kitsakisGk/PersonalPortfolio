@@ -5,24 +5,14 @@ import { experience } from "@/content";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { viewportOnce } from "@/lib/motion";
 
-/** Deterministic fake commit hash per role id — pure flavour. */
-function hash(id: string) {
-  let h = 0x811c9dc5;
-  for (let i = 0; i < id.length; i++) {
-    h ^= id.charCodeAt(i);
-    h = Math.imul(h, 0x01000193);
-  }
-  return (h >>> 0).toString(16).padStart(8, "0").slice(0, 7);
-}
-
-export default function DeployLog() {
+export default function Experience() {
   return (
-    <section id="deploylog" className="relative mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32">
+    <section id="experience" className="relative mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32">
       <SectionHeading
         index="02"
-        module="DEPLOY LOG"
-        title="Release history"
-        subtitle="Every role shipped to production. git log --career --oneline"
+        module="EXPERIENCE"
+        title="Work experience"
+        subtitle="Where I've worked and what I shipped."
       />
 
       <div className="relative">
@@ -62,27 +52,15 @@ export default function DeployLog() {
 
               <div className="glare panel p-5 transition-colors hover:border-line-strong sm:p-6">
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 font-mono text-[11px]">
-                  <span className="rounded bg-accent/30 px-2 py-0.5 font-bold tracking-wider text-accent-neon">
-                    {role.version}
+                  <span className="rounded bg-accent/30 px-2 py-0.5 tracking-wider text-accent-neon">
+                    {role.period.start} — {role.period.end ?? "Present"}
                   </span>
-                  <span className="text-amber">{hash(role.id)}</span>
-                  <span className="text-ink-faint">
-                    {role.period.start} → {role.period.end ?? "PRESENT"}
-                  </span>
-                  <span
-                    className={`ml-auto flex items-center gap-1.5 tracking-widest ${
-                      role.status === "active" ? "text-accent-neon" : "text-ink-faint"
-                    }`}
-                  >
-                    <span
-                      className={`inline-block h-1.5 w-1.5 rounded-full ${
-                        role.status === "active"
-                          ? "bg-accent-neon pulse-dot"
-                          : "bg-ink-faint"
-                      }`}
-                    />
-                    {role.status === "active" ? "RUNNING" : "SHIPPED"}
-                  </span>
+                  {role.status === "active" && (
+                    <span className="ml-auto flex items-center gap-1.5 tracking-widest text-accent-neon">
+                      <span className="inline-block h-1.5 w-1.5 rounded-full bg-accent-neon pulse-dot" />
+                      CURRENT
+                    </span>
+                  )}
                 </div>
 
                 <h3 className="mt-3 text-lg font-bold text-ink sm:text-xl">

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { viewportOnce } from "@/lib/motion";
 
-/** Console-style section header: `01 // MISSION` + human title. */
+/** Console-style section header: `01 // ABOUT` + human title. */
 export default function SectionHeading({
   index,
   module: moduleName,

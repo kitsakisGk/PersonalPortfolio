@@ -50,14 +50,11 @@ export default function HUD() {
       <div className="glass flex h-14 items-center justify-between border-x-0 border-t-0 px-4 sm:px-6">
         <a
           href="#top"
-          className="flex items-center gap-2.5 font-mono text-sm font-bold tracking-widest text-ink"
+          className="flex items-center gap-2.5 font-mono text-[13px] font-bold tracking-[0.18em] text-ink"
           aria-label="Back to top"
         >
-          <span className="inline-block h-2 w-2 rounded-full bg-accent-neon pulse-dot" />
+          <span className="inline-block h-2 w-2 shrink-0 rounded-full bg-accent-neon pulse-dot" />
           {profile.callsign}
-          <span className="hidden text-[10px] font-normal text-ink-faint sm:inline">
-            v5.2.0
-          </span>
         </a>
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Console modules">

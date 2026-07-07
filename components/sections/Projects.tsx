@@ -22,7 +22,7 @@ const DOMAIN_FILTERS: { id: ProjectDomain | "all"; label: string }[] = [
   { id: "mobile", label: "MOBILE" },
 ];
 
-export default function Systems() {
+export default function Projects() {
   const [filter, setFilter] = useState<ProjectDomain | "all">("all");
 
   const visible = useMemo(
@@ -31,15 +31,15 @@ export default function Systems() {
   );
 
   return (
-    <section id="systems" className="relative mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32">
+    <section id="projects" className="relative mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32">
       <SectionHeading
         index="03"
-        module="SYSTEMS"
-        title="Deployed systems"
-        subtitle="Pipelines, models and products currently in the field."
+        module="PROJECTS"
+        title="Projects"
+        subtitle="Data platforms, ML systems and products I've built."
       />
 
-      <div className="mb-8 flex flex-wrap gap-2" role="group" aria-label="Filter systems by domain">
+      <div className="mb-8 flex flex-wrap gap-2" role="group" aria-label="Filter projects by domain">
         {DOMAIN_FILTERS.map((f) => (
           <button
             key={f.id}

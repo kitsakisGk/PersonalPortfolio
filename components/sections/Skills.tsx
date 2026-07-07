@@ -5,14 +5,14 @@ import { skillGroups } from "@/content";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { scaleIn, viewportOnce } from "@/lib/motion";
 
-export default function Stack() {
+export default function Skills() {
   return (
-    <section id="stack" className="relative mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32">
+    <section id="skills" className="relative mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32">
       <SectionHeading
         index="04"
-        module="STACK"
-        title="Technology clusters"
-        subtitle="The racks this operator runs. Hover a cluster to bring it online."
+        module="SKILLS"
+        title="Skills & technologies"
+        subtitle="The tools I work with, grouped by discipline."
       />
 
       <motion.div
@@ -37,7 +37,7 @@ export default function Stack() {
                 {group.icon}
               </span>
               <span className="font-mono text-[10px] tracking-widest text-ink-faint">
-                {String(group.skills.length).padStart(2, "0")} MODULES
+                {String(group.skills.length).padStart(2, "0")} SKILLS
               </span>
             </div>
             <h3 className="mt-3 font-bold text-ink">{group.label}</h3>

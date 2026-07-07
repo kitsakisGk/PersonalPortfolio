@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { certifications } from "@/content";
 import SectionHeading from "@/components/ui/SectionHeading";
 
-export default function Vault() {
+export default function Certifications() {
   const categories = useMemo(
     () => ["All", ...Array.from(new Set(certifications.map((c) => c.category)))],
     []
@@ -17,12 +17,12 @@ export default function Vault() {
   );
 
   return (
-    <section id="vault" className="relative mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32">
+    <section id="certifications" className="relative mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32">
       <SectionHeading
         index="05"
-        module="VAULT"
-        title="Unlocked credentials"
-        subtitle={`${certifications.length} achievements earned across data, AI and engineering.`}
+        module="CERTIFICATIONS"
+        title="Certifications & awards"
+        subtitle={`${certifications.length} credentials earned across data, AI and engineering.`}
       />
 
       <div className="mb-8 flex flex-wrap gap-2" role="group" aria-label="Filter credentials by category">
@@ -74,9 +74,11 @@ export default function Vault() {
                     {isAward ? "★" : "◆"}
                   </div>
                   <div className="min-w-0 flex-1">
-                    <p className="font-mono text-[9px] tracking-[0.3em] text-ink-faint">
-                      {isAward ? "RARE ACHIEVEMENT" : "UNLOCKED"}
-                    </p>
+                    {isAward && (
+                      <p className="font-mono text-[9px] tracking-[0.3em] text-amber">
+                        AWARD
+                      </p>
+                    )}
                     <h3
                       className={`truncate font-semibold text-ink ${
                         isAward ? "text-lg" : "text-sm"

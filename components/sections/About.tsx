@@ -6,13 +6,13 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import TiltCard from "@/components/ui/TiltCard";
 import { fadeUp, viewportOnce } from "@/lib/motion";
 
-export default function Mission() {
+export default function About() {
   return (
-    <section id="mission" className="relative mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32">
+    <section id="about" className="relative mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32">
       <SectionHeading
         index="01"
-        module="MISSION"
-        title="Operator profile"
+        module="ABOUT"
+        title="About me"
         subtitle="One engineer, full spectrum — from source system to serving layer."
       />
 
@@ -26,14 +26,14 @@ export default function Mission() {
           variants={fadeUp()}
         >
           <motion.div custom={0} variants={fadeUp()} className="panel brackets p-6 sm:p-8">
-            <p className="font-mono text-xs text-accent-bright">
-              <span className="text-ink-faint">$</span> whoami --verbose
-            </p>
-            <p className="mt-4 leading-relaxed text-ink-dim">{profile.bio}</p>
-            <p className="mt-4 font-mono text-xs text-ink-faint">
-              exit code: <span className="text-accent-neon">0</span> — all capabilities
-              verified
-            </p>
+            <p className="leading-relaxed text-ink-dim">{profile.bio}</p>
+            <a
+              href={profile.cv}
+              download
+              className="mt-6 inline-flex items-center gap-2 rounded border border-line-strong px-5 py-2.5 font-mono text-xs tracking-wider text-accent-bright transition-colors hover:border-accent-bright hover:text-accent-neon"
+            >
+              ↓ DOWNLOAD CV
+            </a>
           </motion.div>
 
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
@@ -79,7 +79,7 @@ export default function Mission() {
             </div>
 
             <div className="mt-6 border-t border-line pt-5">
-              <p className="mono-label mb-3">education.log</p>
+              <p className="mono-label mb-3">education</p>
               {education.map((e) => (
                 <div key={e.id} className="mb-4 last:mb-0">
                   <p className="text-sm font-semibold text-ink">{e.degree}</p>
@@ -91,7 +91,7 @@ export default function Mission() {
             </div>
 
             <div className="mt-2 border-t border-line pt-5">
-              <p className="mono-label mb-3">locale.cfg</p>
+              <p className="mono-label mb-3">languages</p>
               <ul className="space-y-2">
                 {profile.languages.map((l) => (
                   <li
