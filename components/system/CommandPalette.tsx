@@ -4,7 +4,6 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { navModules, paletteCommands } from "@/content";
 import type { PaletteCommand } from "@/lib/types";
-import { unlock } from "@/lib/achievements";
 
 /**
  * Developer-tool command palette. Ctrl/Cmd+K or `/` opens it; type to
@@ -61,7 +60,6 @@ export default function CommandPalette() {
         setOpen((o) => !o);
         setQuery("");
         setActive(0);
-        unlock("palette");
       }
       if (e.key === "Escape") setOpen(false);
     };
@@ -69,7 +67,6 @@ export default function CommandPalette() {
       setOpen(true);
       setQuery("");
       setActive(0);
-      unlock("palette");
     };
     window.addEventListener("keydown", onKey);
     window.addEventListener("gk:open-palette", onOpenEvent);

@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { bootLines } from "@/content";
-import { unlock } from "@/lib/achievements";
 
 /* storage can throw in private/embedded contexts — degrade gracefully */
 function getBooted() {
@@ -32,25 +31,21 @@ export default function BootSequence() {
   useEffect(() => {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const booted = getBooted();
-    if (booted || reduced) {
-      unlock("boot");
-      return;
-    }
+    if (booted || reduced) return;
     document.documentElement.style.overflow = "hidden";
 
     const timers: ReturnType<typeof setTimeout>[] = [];
     timers.push(setTimeout(() => setVisible(true), 0));
     bootLines.forEach((_, i) => {
-      timers.push(setTimeout(() => setLineCount(i + 1), 260 + i * 210));
+      timers.push(setTimeout(() => setLineCount(i + 1), 200 + i * 150));
     });
-    const done = setTimeout(dismiss, 260 + bootLines.length * 210 + 550);
+    const done = setTimeout(dismiss, 200 + bootLines.length * 150 + 400);
     timers.push(done);
 
     function dismiss() {
       setBooted();
       document.documentElement.style.overflow = "";
       setVisible(false);
-      unlock("boot");
     }
 
     const skip = () => dismiss();

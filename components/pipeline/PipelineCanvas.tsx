@@ -4,7 +4,6 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { pipelineNodes, pipelineLinks } from "@/content";
 import type { PipelineNode, PipelineNodeKind } from "@/lib/types";
-import { unlock } from "@/lib/achievements";
 
 const VIEW_W = 1000;
 const VIEW_H = 520;
@@ -51,7 +50,6 @@ export default function PipelineCanvas() {
   const [selected, setSelected] = useState<string | null>(null);
   const pathRefs = useRef<(SVGPathElement | null)[]>([]);
   const packetRefs = useRef<(SVGCircleElement | null)[]>([]);
-  const inspected = useRef(false);
 
   const flowLinks = useMemo(
     () => pipelineLinks.filter((l) => l.kind !== "observe"),
@@ -117,10 +115,6 @@ export default function PipelineCanvas() {
 
   const select = (id: string | null) => {
     setSelected(id);
-    if (id && !inspected.current) {
-      inspected.current = true;
-      unlock("pipeline-explorer");
-    }
   };
 
   const selectedNode = selected ? byId(selected) : null;
