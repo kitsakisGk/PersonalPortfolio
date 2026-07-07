@@ -2,56 +2,21 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        background: "var(--bg-primary)",
-        textAlign: "center",
-        padding: "2rem",
-      }}
-    >
-      <p
-        style={{
-          fontSize: "0.7rem",
-          fontFamily: "monospace",
-          letterSpacing: "0.3em",
-          textTransform: "uppercase",
-          color: "var(--accent-light)",
-          marginBottom: "1rem",
-        }}
-      >
-        404
-      </p>
-      <h1
-        style={{
-          fontSize: "clamp(2rem, 6vw, 3.5rem)",
-          fontWeight: 700,
-          color: "var(--text-primary)",
-          marginBottom: "1rem",
-        }}
-      >
-        Page not found
+    <div className="flex min-h-screen flex-col items-center justify-center bg-bg px-8 text-center">
+      <p className="mono-label mb-4">error 404 // module not found</p>
+      <h1 className="glow-text text-4xl font-bold text-ink sm:text-6xl">
+        SIGNAL LOST
       </h1>
-      <p style={{ color: "var(--text-secondary)", marginBottom: "2rem" }}>
-        This page doesn&apos;t exist.
+      <p className="mt-4 max-w-md font-mono text-sm text-ink-dim">
+        <span className="text-ink-faint">$</span> locate ./requested-module
+        <br />
+        <span className="text-amber">warn:</span> no such module in this console
       </p>
       <Link
         href="/"
-        style={{
-          padding: "0.75rem 1.75rem",
-          borderRadius: "999px",
-          fontWeight: 600,
-          fontSize: "0.9rem",
-          background: "var(--accent)",
-          color: "var(--text-primary)",
-          textDecoration: "none",
-        }}
+        className="mt-8 rounded bg-accent px-6 py-3 font-mono text-sm font-semibold tracking-wider text-ink transition-colors hover:bg-accent-mid"
       >
-        Go home
+        ⇀ RETURN TO CONSOLE
       </Link>
     </div>
   );
