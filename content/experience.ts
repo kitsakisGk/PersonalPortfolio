@@ -1,17 +1,15 @@
 import type { Role, Education } from "@/lib/types";
 
 /**
- * Deploy log — professional roles rendered newest-first.
+ * Work experience — roles rendered newest-first.
  * Add a new role object at the top when the next chapter starts.
  */
 export const experience: Role[] = [
   {
     id: "intrum",
-    version: "v3.0",
     company: "Intrum",
     title: "Data Engineer",
     period: { start: "Apr 2026", end: null },
-    environment: "production",
     summary:
       "Designing and building the Data Warehouse for Intrum Hellas from the ground up.",
     highlights: [
@@ -23,11 +21,9 @@ export const experience: Role[] = [
   },
   {
     id: "accenture",
-    version: "v2.0",
     company: "Accenture",
     title: "Data Engineer",
     period: { start: "Nov 2024", end: "Mar 2026" },
-    environment: "production",
     summary:
       "Built and operated production ETL for enterprise clients across banking-grade data estates.",
     highlights: [
@@ -40,11 +36,9 @@ export const experience: Role[] = [
   },
   {
     id: "deltafoods",
-    version: "v1.0",
     company: "DeltaFoods SA",
     title: "Junior Software Developer",
     period: { start: "Mar 2024", end: "Oct 2024" },
-    environment: "production",
     summary:
       "Full-stack business software and analytics for a food industry leader.",
     highlights: [

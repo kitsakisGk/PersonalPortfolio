@@ -1,13 +1,13 @@
-import type { NavModule, SiteAchievement, PaletteCommand } from "@/lib/types";
+import type { NavModule, PaletteCommand } from "@/lib/types";
 
-/** Console modules — drives the HUD nav, section indices and the scanner. */
+/** Site sections — drives the top nav, section indices and the palette. */
 export const navModules: NavModule[] = [
-  { id: "mission", index: "01", label: "MISSION", href: "#mission", hint: "who operates this console" },
-  { id: "deploylog", index: "02", label: "DEPLOY LOG", href: "#deploylog", hint: "professional release history" },
-  { id: "systems", index: "03", label: "SYSTEMS", href: "#systems", hint: "deployed projects" },
-  { id: "stack", index: "04", label: "STACK", href: "#stack", hint: "technology clusters" },
-  { id: "vault", index: "05", label: "VAULT", href: "#vault", hint: "unlocked credentials" },
-  { id: "transmit", index: "06", label: "TRANSMIT", href: "#transmit", hint: "open a channel" },
+  { id: "about", index: "01", label: "ABOUT", href: "#about", hint: "who I am" },
+  { id: "experience", index: "02", label: "EXPERIENCE", href: "#experience", hint: "work history" },
+  { id: "projects", index: "03", label: "PROJECTS", href: "#projects", hint: "things I've built" },
+  { id: "skills", index: "04", label: "SKILLS", href: "#skills", hint: "technologies I use" },
+  { id: "certifications", index: "05", label: "CERTIFICATIONS", href: "#certifications", hint: "credentials & awards" },
+  { id: "contact", index: "06", label: "CONTACT", href: "#contact", hint: "get in touch" },
 ];
 
 /** Boot sequence lines typed on first visit. */
@@ -20,40 +20,6 @@ export const bootLines: string[] = [
   "loading ml models ......................... OK",
   "starting observability agents ............. OK",
   "rendering interface",
-];
-
-/** Discovery achievements — unlocked as visitors explore. */
-export const siteAchievements: SiteAchievement[] = [
-  {
-    id: "boot",
-    title: "SYSTEM ONLINE",
-    description: "Console booted successfully",
-    icon: "⏻",
-  },
-  {
-    id: "palette",
-    title: "POWER USER",
-    description: "Opened the command palette",
-    icon: "⌘",
-  },
-  {
-    id: "pipeline-explorer",
-    title: "FLOW TRACER",
-    description: "Inspected a pipeline stage",
-    icon: "◈",
-  },
-  {
-    id: "full-scan",
-    title: "FULL SCAN COMPLETE",
-    description: "Explored every module",
-    icon: "◉",
-  },
-  {
-    id: "retro",
-    title: "1986 MODE",
-    description: "Konami code accepted",
-    icon: "▲",
-  },
 ];
 
 /** Command palette entries (nav modules are added automatically). */
@@ -75,7 +41,7 @@ export const paletteCommands: PaletteCommand[] = [
   {
     id: "cmd-email",
     label: "sudo hire-me",
-    hint: "opens a transmission",
+    hint: "opens your email app",
     keywords: "email contact hire mail transmit sudo",
     action: { type: "link", href: "mailto:kitsakisgk@gmail.com" },
   },

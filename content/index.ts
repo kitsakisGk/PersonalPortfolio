@@ -8,4 +8,4 @@ export { projects } from "./projects";
 export { skillGroups, capabilities, services } from "./skills";
 export { certifications } from "./certifications";
 export { pipelineNodes, pipelineLinks } from "./pipeline";
-export { navModules, bootLines, siteAchievements, paletteCommands } from "./site";
+export { navModules, bootLines, paletteCommands } from "./site";

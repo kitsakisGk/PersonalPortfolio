@@ -85,7 +85,7 @@ export const capabilities: string[] = [
   "Data Platforms",
 ];
 
-/** What I can build for you — rendered in the mission module. */
+/** What I can build for you — rendered in the About section. */
 export const services: Service[] = [
   {
     id: "data-platforms",

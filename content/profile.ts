@@ -3,7 +3,8 @@ import type { Profile } from "@/lib/types";
 export const profile: Profile = {
   name: "Georgios Kitsakis",
   initials: "GK",
-  callsign: "GK://OPS",
+  callsign: "GEORGIOS KITSAKIS",
+  cv: "/Kitsakis_Georgios_CV.pdf",
   roles: [
     "Data Engineer",
     "Software Engineer",
@@ -43,8 +44,8 @@ export const profile: Profile = {
     { lang: "German", level: "Beginner", detail: "A2" },
   ],
   stats: [
-    { label: "Years shipping", value: "3+", hint: "across data & software" },
-    { label: "Systems deployed", value: "12+", hint: "pipelines, apps, models" },
+    { label: "Years experience", value: "3+", hint: "across data & software" },
+    { label: "Projects delivered", value: "12+", hint: "pipelines, apps, models" },
     { label: "Certifications", value: "13", hint: "data, AI, engineering" },
     { label: "Cloud platform", value: "Azure", hint: "+ Databricks lakehouse" },
   ],

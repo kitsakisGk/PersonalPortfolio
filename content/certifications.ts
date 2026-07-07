@@ -1,7 +1,7 @@
 import type { Certification } from "@/lib/types";
 
 /**
- * Achievement vault — certifications & awards rendered as unlocked badges.
+ * Certifications & awards rendered as badge cards.
  * Docs folder: https://drive.google.com/drive/folders/1isse8r3at14oIzJp5PthxZ9luhLsppKV
  */
 export const certifications: Certification[] = [

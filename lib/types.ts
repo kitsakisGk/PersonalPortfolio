@@ -8,6 +8,8 @@ export interface Profile {
   name: string;
   initials: string;
   callsign: string;
+  /** public path to the downloadable CV pdf */
+  cv: string;
   roles: string[];
   headline: string;
   subheadline: string;
@@ -24,11 +26,9 @@ export interface Profile {
 
 export interface Role {
   id: string;
-  version: string;
   company: string;
   title: string;
   period: { start: string; end: string | null };
-  environment: string;
   summary: string;
   highlights: string[];
   tech: string[];
@@ -118,13 +118,6 @@ export interface NavModule {
   label: string;
   href: string;
   hint: string;
-}
-
-export interface SiteAchievement {
-  id: string;
-  title: string;
-  description: string;
-  icon: string;
 }
 
 export interface PaletteCommand {
